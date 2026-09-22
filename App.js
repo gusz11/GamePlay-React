@@ -34,7 +34,6 @@ export default function App() {
   if (currentScreen === 'agendar') {
     return <Agendar onBack={() => setCurrentScreen('home')} />;
   }
-
   if (currentScreen === 'details') {
     return <Details onBack={() => setCurrentScreen('home')} />;
   }
@@ -43,16 +42,15 @@ export default function App() {
     <LinearGradient colors={['#0E1647', '#0A1033']} style={styles.container}>
       <View style={styles.header}>
          <Image
-                  source={require('./assets/profile-pic.png')}
-                  style={styles.avatar}
-                />
+            source={require('./assets/profile-pic.png')}
+            style={styles.avatar}
+         />
           <View style={styles.userInfo}>
             <Text style={styles.title}>Olá, <Text style={styles.highlight}>Tiago</Text></Text>
             <Text style={styles.description}>Hoje é dia de vitória</Text>
           </View>
             <TouchableOpacity 
             accessibilityRole="button"
-            accessibilityLabel="Abrir tela de agendamento"
             style={styles.button}
             onPress={() => setCurrentScreen('agendar')}>
               <MaterialIcons name="add" size={24} color="#FFFFFF" />
@@ -106,13 +104,10 @@ const styles = StyleSheet.create({
   description: {
     color: '#ABB1CC',
     fontSize: 13,
-    fontWeight: '400',
-    lineHeight: 17,
   },
   header: {
-    width: '100%',
     flexDirection: 'row',
-    marginTop: 66,
+    marginTop: 70,
     marginBottom: 40,
   },
   avatar: {
@@ -136,6 +131,7 @@ const styles = StyleSheet.create({
   cardContent: {
     flexDirection: 'row',
     gap: 8,
+    marginBottom: 40,
   },
   cardScroll: {
     flexGrow: 0,
@@ -146,13 +142,12 @@ const styles = StyleSheet.create({
   titleContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 20,
+    marginBottom: 25,
   },
   listContent: {
     flex: 1,
   },
   listContentContainer: {
-    paddingBottom: 24,
     gap: 30,
   },
   titleContent: {

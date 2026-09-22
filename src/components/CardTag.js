@@ -1,7 +1,6 @@
 import { LinearGradient } from 'expo-linear-gradient';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useFonts, Rajdhani_700Bold } from '@expo-google-fonts/rajdhani';
-import { MaterialIcons } from '@expo/vector-icons';
 
 export default function CardTag({ label, iconComponent: Icon, selected = false, onPress }) {
     const [fontsLoaded] = useFonts({
@@ -9,33 +8,33 @@ export default function CardTag({ label, iconComponent: Icon, selected = false, 
       });
 
   return (
-<LinearGradient
-      colors={['#1D2766', '#171F52']}
-      style={[styles.button, selected && styles.selectedButton]}
+    <LinearGradient
+          colors={['#1D2766', '#171F52']}
+          style={[styles.button, selected && styles.selectedButton]}
     >
-      <TouchableOpacity
-        accessibilityRole="button"
-        accessibilityState={{ selected }}
-        onPress={onPress}
-        style={styles.container}
-      >
-        <View style={styles.selectionIndicator}>
-          {selected ?
-           <View 
-                style={{ 
-                width: 8, 
-                height: 8, 
-                backgroundColor: '#E51C44', 
-                borderRadius: 2 
-            }} 
-            />
-         : null}
-        </View>
-        <View style={styles.iconWrapper}>
-          {Icon ? <Icon width={48} height={48} /> : null}
-        </View>
-        <Text style={styles.label}>{label}</Text>
-      </TouchableOpacity>
+          <TouchableOpacity
+            accessibilityRole="button"
+            accessibilityState={{ selected }}
+            onPress={onPress}
+            style={styles.container}
+          >
+            <View style={styles.selectionIndicator}>
+              <View
+                style={{
+                  width: 8,
+                  height: 8,
+                  borderRadius: 2,
+                  backgroundColor: selected ? '#E51C44' : '#0A1033',
+                  borderColor: selected ? null : '#243189',
+                  borderWidth: selected ? null : '1'
+                }}
+              />
+            </View>
+              <View style={styles.iconWrapper}>
+                {Icon ? <Icon width={48} height={48} /> : null}
+              </View>
+              <Text style={styles.label}>{label}</Text>
+          </TouchableOpacity>
     </LinearGradient>
   );
 }
@@ -48,7 +47,6 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     borderWidth: 1,
     borderColor: '#243189',
-    marginBottom: 40,
     opacity: 0.5,
   },
   selectedButton: {

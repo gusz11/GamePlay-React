@@ -8,15 +8,15 @@ export default function CardSelect({ label, iconComponent: Icon }) {
       });
 
   return (
-<LinearGradient colors={['#1D2766', '#171F52']} style={styles.button}>
-<TouchableOpacity
-      accessibilityRole="button" style={styles.container}
-    >
-      <View style={styles.iconWrapper}>
-        {Icon ? <Icon width={48} height={48} /> : null}
-      </View>
-      <Text style={styles.label}>{label}</Text>
-    </TouchableOpacity>
+    <LinearGradient colors={['#1D2766', '#171F52']} style={styles.button}>
+      <TouchableOpacity
+            accessibilityRole="button" style={styles.container}
+      >
+            <View style={styles.iconWrapper}>
+              {Icon ? <Icon width={48} height={48} /> : null}
+            </View>
+            <Text style={styles.label}>{label}</Text>
+      </TouchableOpacity>
     </LinearGradient>
   );
 }
@@ -26,10 +26,8 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     height: 120,
     width: 104,
-    overflow: 'hidden',
     borderWidth: 1,
     borderColor: '#243189',
-    marginBottom: 40,
   },
     container: {    
     flex : 1,

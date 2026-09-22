@@ -5,7 +5,6 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { useFonts, Rajdhani_700Bold } from '@expo-google-fonts/rajdhani';
 import DiscordButton from '../components/DiscordButton';
 import Users from '../components/Users';
-import RanqueadaIcon from '../../assets/Ranqueada.svg';
 
 export default function Details({ onBack }) {
     const [fontsLoaded] = useFonts({
@@ -72,9 +71,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  headerGradient: {
-    width: '100%',
-  },
   header: {
     alignItems: 'center',
     flexDirection: 'row',
@@ -82,8 +78,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
   },
   backButton: {
-    alignItems: 'center',
-    height: 48,
     justifyContent: 'center',
     width: 48,
   },
@@ -94,27 +88,16 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
   },
-  headerRight: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: 48,
-  },
   shareButton: {
     alignItems: 'center',
-    height: 48,
     justifyContent: 'center',
     width: 48,
   },
   imageContent: {
-    height: 240,
-    position: 'relative',
-    width: '100%',
+    height: 234,
   },
   backgroundImage: {
-    height: '100%',
-    left: 0,
     position: 'absolute',
-    top: 0,
     width: '100%',
   },
   imageTitle: {

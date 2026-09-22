@@ -2,20 +2,20 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 export default function DiscordButton({ label, onPress }) {
   return (
-<TouchableOpacity
-      accessibilityRole="button"
-      style={styles.button}
-      onPress={onPress}
+    <TouchableOpacity
+          accessibilityRole="button"
+          style={styles.button}
+          onPress={onPress}
     >
-      <View style={styles.iconWrapper}>
-        <Image
-          source={require('../../assets/Discord-Logo-White 1.png')}
-          style={styles.icon}
-          resizeMode="contain"
-        />
-      </View>
-      <View style={styles.divider} />
-      <Text style={styles.label}>{label}</Text>
+          <View style={styles.iconWrapper}>
+            <Image
+              source={require('../../assets/Discord-Logo-White 1.png')}
+              style={styles.icon}
+              resizeMode="contain"
+            />
+          </View>
+          <View style={styles.divider} />
+          <Text style={styles.label}>{label}</Text>
     </TouchableOpacity>
   );
 }
@@ -27,12 +27,9 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     height: 56,
     flexDirection: 'row',
-    width: '100%',
-    overflow: 'hidden',
   },
   iconWrapper: {
-    width: 64,
-    height: '100%',
+    width: 56,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -51,6 +48,5 @@ const styles = StyleSheet.create({
     color: '#DDE3F0',
     fontSize: 15,
     fontWeight: '500',
-    lineHeight: 25,
   },
 });

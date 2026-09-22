@@ -8,44 +8,44 @@ export default function Matches({ label, iconSource, date, type, member, onPress
     const [fontsLoaded] = useFonts({
         Rajdhani_700Bold,
       });
-  const MemberIcon = member === 'Anfitrião' ? MemberPink : MemberGreen;
+    const MemberIcon = member === 'Anfitrião' ? MemberPink : MemberGreen;
 
   return (
 
-<View style={styles.card}>
-    <View style={styles.iconWrapper}>
-          {iconSource ? (
-            <Image source={iconSource} style={styles.gameIcon} resizeMode="contain" />
-          ) : null}
-    </View>
-    <TouchableOpacity
-      style={styles.cardInfo}
-      accessibilityRole="button"
-      onPress={onPress}
-    >
-      <View>
-        <Text style={styles.tittle}>{label}</Text>
-        <View style={styles.dateRow}>
-        <CalendarIcon width={16} height={16} />
-        <Text style={styles.date}>{date}</Text>
+    <View style={styles.card}>
+        <View style={styles.iconWrapper}>
+              {iconSource ? (
+                <Image source={iconSource} style={styles.gameIcon} resizeMode="contain" />
+              ) : null}
         </View>
-      </View>
-      <View>
-        <Text style={styles.type}>{type}</Text>
-        <View style={styles.memberRow}>
-        <MemberIcon width={16} height={16} />
-        <Text
-          style={[
-            styles.member,
-            member === 'Anfitrião' ? styles.memberHost : styles.memberVisitor,
-          ]}
+        <TouchableOpacity
+          style={styles.cardInfo}
+          accessibilityRole="button"
+          onPress={onPress}
         >
-          {member}
-        </Text>
-        </View>
-      </View>
-    </TouchableOpacity>
-</View>
+          <View>
+            <Text style={styles.tittle}>{label}</Text>
+            <View style={styles.dateRow}>
+              <CalendarIcon width={16} height={16} />
+              <Text style={styles.date}>{date}</Text>
+            </View>
+          </View>
+          <View>
+              <Text style={styles.type}>{type}</Text>
+              <View style={styles.memberRow}>
+                <MemberIcon width={16} height={16} />
+                <Text
+                  style={[
+                    styles.member,
+                    member === 'Anfitrião' ? styles.memberHost : styles.memberVisitor,
+                  ]}
+                >
+                  {member}
+                </Text>
+              </View>
+          </View>
+        </TouchableOpacity>
+    </View>
   );
 }
 
@@ -53,7 +53,6 @@ const styles = StyleSheet.create({
   card: {
     alignItems: 'center',
     flexDirection: 'row',
-    width: '100%',
   },
   cardInfo: {
     alignItems: 'center',
@@ -65,8 +64,7 @@ const styles = StyleSheet.create({
     height: 69,
     justifyContent: 'space-between',
     marginLeft: 16,
-    overflow: 'hidden',
-    paddingHorizontal: 0,
+    paddingBottom: 5,
   },
   iconWrapper: {
     alignItems: 'center',
@@ -75,7 +73,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     height: 68,
     justifyContent: 'center',
-    marginRight: 0,
     width: 64,
   },
   gameIcon: {
@@ -86,7 +83,7 @@ const styles = StyleSheet.create({
     color: '#DDE3F0',
     fontFamily: 'Rajdhani_700Bold',
     fontSize: 18,
-    marginBottom: 8,
+    marginBottom: 16,
   },
   date: {
     color: '#DDE3F0',
@@ -97,12 +94,13 @@ const styles = StyleSheet.create({
   type: {
     color: '#ABB1CC',
     fontSize: 13,
-    marginBottom: 8,
+    marginBottom: 16,
     textAlign: 'right',
   },
   member: {
     fontSize: 13,
     textAlign: 'right',
+    marginLeft: 3,
   },
   memberHost: {
     color: '#E51C44',
@@ -116,8 +114,5 @@ const styles = StyleSheet.create({
   memberRow: {
     alignItems: 'center',
     flexDirection: 'row',
-  },
-  memberIcon: {
-    marginRight: 6,
   },
 });

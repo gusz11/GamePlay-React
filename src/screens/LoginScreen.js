@@ -7,7 +7,6 @@ export default function LoginScreen({ onLogin }) {
   const [fontsLoaded] = useFonts({
     Rajdhani_700Bold,
   });
-
   if (!fontsLoaded) {
     return null;
   }
@@ -39,12 +38,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 50,
   },
   content: {
-    width: '100%',
-    alignSelf: 'center',
-    justifyContent: 'center',
     alignItems: 'center',
-  },
-  loginImage: {
   },
   loginInfo: {
     transform: [{ translateY: -65 }],
@@ -54,19 +48,16 @@ const styles = StyleSheet.create({
     fontFamily: 'Rajdhani_700Bold',
     color: '#DDE3F0',
     fontSize: 40,
-    lineHeight: 50,
+    lineHeight: 40,
     textAlign: 'center',
-    width: '94.5%',
     marginBottom: 16,
   },
     description: {
     color: '#DDE3F0',
     fontSize: 15,
     lineHeight: 25,
-    fontWeight: '400',
     marginBottom: 12,
     textAlign: 'center',
-    width: '90%',
     marginBottom: 48,
   },
 });
