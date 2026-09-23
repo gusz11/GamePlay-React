@@ -8,9 +8,13 @@ export default function CardSelect({ label, iconComponent: Icon }) {
       });
 
   return (
-    <LinearGradient colors={['#1D2766', '#171F52']} style={styles.button}>
+    <LinearGradient
+      colors={['#1D2766', '#171F52']}
+      style={styles.button}
+    >
       <TouchableOpacity
-            accessibilityRole="button" style={styles.container}
+            accessibilityRole="button"
+            style={styles.container}
       >
             <View style={styles.iconWrapper}>
               {Icon ? <Icon width={48} height={48} /> : null}

@@ -13,6 +13,15 @@ import RanqueadaIcon from './assets/Ranqueada.svg';
 import Matches from './src/components/Matches';
 import Details from './src/screens/Details';
 
+const matches = [
+  { label: 'Lendários', date: '18/06 às 21:00h', type: 'Ranqueada', member: 'Anfitrião', iconSource: require('./assets/LOL.png') },
+  { label: 'Yeah, boy', date: '23/06 às 19:00h', type: 'Diversão', member: 'Visitante', iconSource: require('./assets/RD2.png') },
+  { label: 'Rumo ao topo', date: '20/06 às 09:00h', type: '1x1', member: 'Anfitrião', iconSource: require('./assets/CS.png') },
+  { label: 'Bora queimar tudo', date: '20/06 às 14:20h', type: 'Ranqueada', member: 'Anfitrião', iconSource: require('./assets/APEX.png') },
+  { label: 'Valorosos', date: '18/06 às 21:00h', type: 'Diversão', member: 'Anfitrião', iconSource: require('./assets/VALORANT.png') },
+  { label: 'Rolezão Monstro', date: '28/06 às 18:00h', type: 'Diversão', member: 'Visitante', iconSource: require('./assets/GTA.png') },
+];
+
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentScreen, setCurrentScreen] = useState('home');
@@ -69,19 +78,20 @@ export default function App() {
       </ScrollView>
       <View style={styles.titleContainer}>
         <Text style={styles.titleContent}>Partidas agendadas</Text>
-        <Text style={styles.description}>Total 6</Text>
+        <Text style={styles.description}>Total {matches.length}</Text>
       </View>
       <ScrollView
         style={styles.listContent}
         contentContainerStyle={styles.listContentContainer}
         showsVerticalScrollIndicator={false}
       >
-        <Matches onPress={() => setCurrentScreen('details')} label="Lendários" date={'18/06 às 21:00h'} type={'Ranqueada'} member={'Anfitrião'} iconSource={require('./assets/LOL.png')} />
-        <Matches onPress={() => setCurrentScreen('details')} label="Yeah, boy" date={'23/06 às 19:00h'} type={'Diversão'} member={'Visitante'} iconSource={require('./assets/RD2.png')} />
-        <Matches onPress={() => setCurrentScreen('details')} label="Rumo ao topo" date={'20/06 às 09:00h'} type={'1x1'} member={'Anfitrião'} iconSource={require('./assets/CS.png')} />
-        <Matches onPress={() => setCurrentScreen('details')} label="Bora queimar tudo" date={'20/06 às 14:20h'} type={'Ranqueada'} member={'Anfitrião'} iconSource={require('./assets/APEX.png')} />
-        <Matches onPress={() => setCurrentScreen('details')} label="Valorosos" date={'18/06 às 21:00h'} type={'Diversão'} member={'Anfitrião'} iconSource={require('./assets/VALORANT.png')} />
-        <Matches onPress={() => setCurrentScreen('details')} label="Rolezão Monstro" date={'28/06 às 18:00h'} type={'Diversão'} member={'Visitante'} iconSource={require('./assets/GTA.png')} />
+        {matches.map((match) => (
+          <Matches
+            key={match.label}
+            {...match}
+            onPress={() => setCurrentScreen('details')}
+          />
+        ))}
       </ScrollView>
     </LinearGradient>
   );

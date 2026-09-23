@@ -6,6 +6,12 @@ import { useFonts, Rajdhani_700Bold } from '@expo-google-fonts/rajdhani';
 import DiscordButton from '../components/DiscordButton';
 import Users from '../components/Users';
 
+const users = [
+  { label: 'Tiago Luchtenberg', status: 'Disponível', iconSource: require('../../assets/user1.png')},
+  { label: 'Rodrigo Gonçalves', status: 'Ocupado', iconSource: require('../../assets/user2.png')},
+  { label: 'Diego Fernandes', status: 'Ocupado', iconSource: require('../../assets/user3.png')},
+];
+
 export default function Details({ onBack }) {
     const [fontsLoaded] = useFonts({
         Rajdhani_700Bold,
@@ -52,12 +58,15 @@ export default function Details({ onBack }) {
     <LinearGradient colors={['#0E1647', '#0A1033']} style={styles.content}>
       <View style={styles.label}>
       <Text style={styles.labelTitle}>Jogadores</Text>
-      <Text style={styles.labelDescription}>Total 3</Text>
+      <Text style={styles.labelDescription}>Total {users.length}</Text>
       </View>
       <View style={styles.GamersList}>
-        <Users label="Tiago Luchtenberg" status={'Disponível'} iconSource={require('../../assets/user1.png')}></Users>
-        <Users label="Rodrigo Gonçalves" status={'Ocupado'} iconSource={require('../../assets/user2.png')}></Users>
-        <Users label="Diego Fernandes" status={'Ocupado'} iconSource={require('../../assets/user3.png')}></Users>
+        {users.map((user) => (
+          <Users
+            key={user.label}
+            {...user}
+          />
+        ))}
       </View>
       <View style={styles.btn}>
       <DiscordButton label="Entrar na partida" onPress={onBack} />
